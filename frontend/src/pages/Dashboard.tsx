@@ -189,16 +189,16 @@ export default function Dashboard() {
                       innerRadius={45} outerRadius={70}
                       dataKey="value" nameKey="label"
                     >
-{candidates_by_status.map((_item, i: number) => (
-                         <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
-                       ))}
-                     </Pie>
-                    <Tooltip />
-                   </PieChart>
-                 </ResponsiveContainer>
-                 <div className="space-y-1.5 mt-2">
-                   {candidates_by_status.map((item, i: number) => (
-                    <div key={item.label} className="flex items-center justify-between text-sm">
+{candidates_by_status.map((_item: unknown, i: number) => (
+                          <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+                        ))}
+                      </Pie>
+                     <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="space-y-1.5 mt-2">
+                    {candidates_by_status.map((item: { label: string; value: number }, i: number) => (
+                     <div key={item.label} className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
                         <div className="w-2.5 h-2.5 rounded-full" style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
                         <span className="capitalize">{item.label}</span>
